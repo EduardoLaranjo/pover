@@ -21,7 +21,7 @@ jobs:
       - run: go vet ./...
       - run: go test -race ./...
 
-  # A v* tag publishes ghcr.io/<owner>/pover:<version without v>.
+  # A vYYYY.MM.DD[.N] tag publishes ghcr.io/<owner>/pover:YYYY.MM.DD[.N].
   image:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: test
@@ -40,7 +40,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository_owner }}/pover
-          tags: type=semver,pattern={{version}}
+          tags: type=match,pattern=^v(\d{4}\.\d{2}\.\d{2}(\.\d+)?)$,group=1
       - uses: docker/build-push-action@v6
         with:
           context: .

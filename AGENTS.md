@@ -20,6 +20,8 @@ worker; pover should do the same job in a few MiB.
 - **Small footprint.** A static binary on a `scratch` image, a few MiB of memory.
 - **Distribution.** Its own GitHub repository; CI publishes a version-tagged image to
   GHCR, which the homelab pins and Renovate updates.
+- **Calendar versioning.** Tags are `vYYYY.MM.DD`, with `.N` for another release on
+  the same day; the image tag drops the `v`.
 - **Homelab image rules.** Never use Alpine-based images, build stages included:
   use Debian, distroless or scratch. Pin exact versions, never `latest`.
 

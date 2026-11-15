@@ -59,4 +59,5 @@ services:
 
 ## Releasing
 
-Push a `vX.Y.Z` tag; CI tests, then publishes `ghcr.io/<owner>/pover:X.Y.Z`.
+Versions are calendar dates. Push a `vYYYY.MM.DD` tag, or `vYYYY.MM.DD.N` for another
+release on the same day; CI tests, then publishes `ghcr.io/<owner>/pover:YYYY.MM.DD`.
